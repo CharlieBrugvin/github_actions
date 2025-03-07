@@ -1,14 +1,20 @@
 name: Shell commands
-on: [push] # event
-jobs: # 1 job
+
+on: [push] # Evenement
+jobs: 
+
   run-shell-command:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-20.04]
+        os: [ubuntu-latest, ubuntu-20.04] 
+        # On lance 2 jobs : les mêmes étapes, sur 2 OS différents
+    
     steps: # 2 étapes
+
       - name: echo a string
         run: echoo "Hello world"
+
       - name: multiline script
         run: |
           python3 -V
